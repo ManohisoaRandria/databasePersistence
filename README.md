@@ -5,5 +5,5 @@ the current tested database is ``postgreSQL`` but you can test Mysql an Oracle d
 
 ## Source code
 ```
-src/main/mg/manohisoa/databasePersistence/GeneriqueRepo.java
+src/main/java/mg/manohisoa/databasePersistence/GeneriqueRepo.java
 ```

@@ -959,7 +959,7 @@ public class GenericRepo {
 				indfield.add(i);
 			    }
 			} else {
-			    if (intNull == null || (intNull != null && (int) obj != intNull)) {
+			    if (intNull == null || (intNull != null && (int) objet != intNull)) {
 				if (pk != null) {
 				    if (where.isEmpty()) {
 					wherereq += " where " + colonne + " = ? ";
@@ -1053,7 +1053,7 @@ public class GenericRepo {
 			    condition.add(objet);
 			    indfield.add(i);
 			} else {
-			    if (intNull == null || (intNull != null && (int) obj != intNull)) {
+			    if (intNull == null || (intNull != null && (int) objet != intNull)) {
 				if (condition.isEmpty()) {
 				    sql += " " + colonne + " = ? ";
 				} else {

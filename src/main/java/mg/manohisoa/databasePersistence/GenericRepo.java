@@ -350,7 +350,8 @@ public class GenericRepo {
 	    }
 	    ps = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 	    String req = ps.toString();
-	    LOGGER.info("SQL: {}", req);
+	    LOGGER.info("SQL: {}", sql);
+
 	    o = getResultFromCache(tableName, req);
 	    if (o == null) {
 
@@ -1301,11 +1302,15 @@ public class GenericRepo {
 		ps.setObject(nbcolonne, (PGInterval) g);
 		break;
 	    case "java.lang.String":
-		ps.setString(nbcolonne, g.toString());
+		ps.setString(nbcolonne, (String) g);
 		break;
 	    case "java.sql.Date":
 	    case "java.util.Date":
-		ps.setDate(nbcolonne, Date.valueOf(g.toString()));
+		if (g == null) {
+		    ps.setDate(nbcolonne, null);
+		} else {
+		    ps.setDate(nbcolonne, Date.valueOf(g.toString()));
+		}
 		break;
 	    case "float":
 		ps.setFloat(nbcolonne, (float) g);
